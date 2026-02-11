@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-service purchaser</title>
+</head>
+<body>
+    <header>
+        
+        <div class="self-service-log">
+            <p>
+                Self-service purchaser
+            </p>
+        </div>
+
+        <form action="/logout" method="post" id="logout">
+            <input type="submit" value="Cerrar sesion">
+        </form>
+
+        <nav>
+
+
+            <ul>
+
+                <li>
+                    <a href="/">Main</a>
+                </li>
+                <li>
+                    <a href="/consult">consult ID</a>
+                </li>
+                <li>
+                    <a href="/create">Create</a>
+                </li>
+                <li>
+                    <a href="/modify">Modify</a>
+                </li>
+                <li>
+                    <a href="/delete">Delete</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section id="products-container">
+            <% products.forEach(prod => { %>
+                <div class="card-product">
+                    <img class="product-img" src="<%= prod.image %>" alt="<%= prod.name %>">
+                    <h3 title="<%= prod.name %>"><%= limitarCaracteres(prod.name) %></h3>
+                    <p>id: <%= prod.id %></p>
+                    <p>$<%= prod.price %></p>
+                </div>
+            <% }); %>
+
+
+        </section>
+
+    </main>
+</body>
+</html>
