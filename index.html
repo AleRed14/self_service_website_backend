@@ -48,15 +48,8 @@
     <main>
 
         <section id="products-container">
-            <% products.forEach(prod => { %>
-                <div class="card-product">
-                    <img class="product-img" src="<%= prod.image %>" alt="<%= prod.name %>">
-                    <h3 title="<%= prod.name %>"><%= limitarCaracteres(prod.name) %></h3>
-                    <p>id: <%= prod.id %></p>
-                    <p>$<%= prod.price %></p>
-                </div>
-            <% }); %>
 
+            
 
         </section>
 

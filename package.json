@@ -1,0 +1,36 @@
+{
+  "name": "self_service_website",
+  "version": "1.0.0",
+  "description": "Self-service website for purchasing products. Similar to the touchscreen kiosks found in food chains.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleRed14/self_service_website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AleRed14/self_service_website/issues"
+  },
+  "homepage": "https://github.com/AleRed14/self_service_website#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.0",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mysql2": "^3.17.0",
+    "nodemon": "^3.1.11"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/express-session": "^1.18.2"
+  }
+}
