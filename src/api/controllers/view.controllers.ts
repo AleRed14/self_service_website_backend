@@ -1,4 +1,4 @@
-import ProductModels from "../models/product.models.js";
+import ProductModels from "../models/product.models.ts";
 import { Request, Response } from "express";
 
 function limitCharacters(text: string) {
