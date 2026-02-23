@@ -1,6 +1,6 @@
 import { ResultSetHeader, RowDataPacket } from "mysql2";
-import connection from "../database/db.ts";
-import { IProduct } from "../../../@types/express/index.ts";
+import connection from "../database/db.js";
+import type { IProduct } from "../../../@types/express.js";
 
 const selectAllProducts = () => {
 

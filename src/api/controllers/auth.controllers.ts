@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import authModels from "../models/auth.models.ts";
+import authModels from "../models/auth.models.js";
 import { Request, Response } from "express";
 
 export const loginController = async (req: Request, res: Response) => {

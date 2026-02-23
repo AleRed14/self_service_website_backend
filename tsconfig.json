@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    /* Estándar y Compatibilidad */
+    "target": "ES2022",                                  /* Soporte para JS moderno */
+    "module": "NodeNext",                                /* Necesario para que import.meta funcione */
+    "moduleResolution": "NodeNext",                      /* Cómo busca los archivos Node */
+    "lib": ["ES2022"],                                   /* Librerías de tipos base */
+    
+    /* Manejo de Archivos y Salida */
+    "outDir": "./dist",                                  /* Dónde se guardará el código compilado */
+    "rootDir": "./src",                                  /* Dónde está tu código fuente */
+    "baseUrl": ".",                                      /* Base para resolver rutas */
+    
+    /* Configuración de Tipos Personalizados */
+    "typeRoots": [
+      "./node_modules/@types", 
+      "./@types"                                         /* Tu carpeta personalizada */
+    ],
+
+    /* Interoperabilidad y Seguridad */
+    "esModuleInterop": true,                             /* Permite importar paquetes CommonJS como ES Modules */
+    "forceConsistentCasingInFileNames": true,            /* Evita errores de mayúsculas/minúsculas en rutas */
+    "strict": true,                                      /* Activa todas las comprobaciones de tipo estrictas */
+    "skipLibCheck": true,                                /* Acelera la compilación ignorando tipos de librerías */
+    "resolveJsonModule": true                            /* Permite importar archivos .json */
+  },
+  "include": [
+    "src/**/*",                                          /* Incluye todo en src */
+    "@types/**/*"                                        /* Incluye tus definiciones manuales */
+  ],
+  "exclude": [
+    "node_modules",                                      /* Ignora la carpeta de paquetes */
+    "dist"                                               /* Ignora la carpeta de salida */
+  ]
+}

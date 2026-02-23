@@ -1,9 +1,9 @@
 import { Router } from "express";
 const router = Router();
 
-import { productsView } from "../controllers/view.controllers.ts";
+import { productsView } from "../controllers/view.controllers.js";
 
-import { requiresLogin } from "../middlewares/middlewares.ts";
+import { requiresLogin } from "../middlewares/middlewares.js";
 
 router.get("/", requiresLogin, productsView);
 

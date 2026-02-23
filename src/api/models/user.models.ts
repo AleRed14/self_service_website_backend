@@ -1,5 +1,5 @@
 import { ResultSetHeader } from "mysql2";
-import conecction from "../database/db.ts";
+import conecction from "../database/db.js";
 
 const insertUser = (name: string, email: Email, password: string) => {
     const sql = `INSERT INTO users (name, email, password) VALUES (?, ?, ?)`;

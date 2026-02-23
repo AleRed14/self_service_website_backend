@@ -1,5 +1,5 @@
 import mysql from "mysql2/promise";
-import enviroments from "../config/environments.ts";
+import enviroments from "../config/environments.js";
 
 const { database } = enviroments
 
