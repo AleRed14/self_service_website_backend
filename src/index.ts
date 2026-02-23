@@ -1,9 +1,9 @@
 import express from "express";
-import enviroments from "./src/api/config/environments.ts";
+import enviroments from "./api/config/environments.js";
 import cors from "cors";
-import { loggerURL } from "./src/api/middlewares/middlewares.ts"; 
-import { productRoutes, userRoutes, viewRoutes, authRoutes, saleRoutes } from "./src/api/routes/index.ts";
-import { __dirname, join } from "./src/api/utils/index.ts";
+import { loggerURL } from "./api/middlewares/middlewares.js"; 
+import { productRoutes, userRoutes, viewRoutes, authRoutes, saleRoutes } from "./api/routes/index.js";
+import { __dirname, join } from "./api/utils/index.js";
 import session from "express-session";
 
 const app = express();
