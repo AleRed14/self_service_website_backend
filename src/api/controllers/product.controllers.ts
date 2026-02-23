@@ -1,5 +1,6 @@
-import ProductModels from "../models/product.models.ts";
+import ProductModels from "../models/product.models.js";
 import { Request, Response } from "express";
+import ExcelJS from "exceljs";
 
 export const getAllProducts = async (req: Request, res: Response) => {
     try {
@@ -175,6 +176,41 @@ export const getProductsOfPage = async (req: Request, res: Response) => {
 
         res.status(500).json({
             message: "Internal error while retrieving products"
+        });
+    }
+}
+
+export const getProductsExcel = async (req: Request, res: Response) => {
+    try {
+        
+        const [rows] = await ProductModels.selectAllProducts();
+
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet("Products")
+
+        worksheet.columns = [
+            { header: "ID", key: "id", width: 10 },
+            { header: "Name", key: "name", width: 30 },
+            { header: "Price", key: "price", width: 15 }
+        ];
+
+        rows.forEach(row => worksheet.addRow(row));
+
+        res.setHeader(
+            "Content-Type",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        );
+
+        res.setHeader("Content-Disposition", "attachment; filename=productos.xlsx");
+
+        await workbook.xlsx.write(res);
+
+        res.end();
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "Error exporting to Excel"
         });
     }
 }

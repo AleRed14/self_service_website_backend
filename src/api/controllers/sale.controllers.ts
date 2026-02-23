@@ -1,6 +1,7 @@
 import connection from "../database/db.js";
 import SaleModels from "../models/sale.models.js";
 import { Request, Response } from "express";
+import ExcelJS from "exceljs";
 
 export const insertSale = async (req: Request, res: Response) => {
 
@@ -46,3 +47,67 @@ export const insertSale = async (req: Request, res: Response) => {
         conn.release();
     }
 };
+
+export const getSalesExcel = async (req: Request, res: Response) => {
+    try {
+        
+        const [rows] = await SaleModels.selectSoldProducts();
+
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet("Ventas");
+
+        worksheet.columns = [
+            { header: "ID Sale", key: "sale_id", width: 10 },
+            { header: "Date", key: "date", width: 25 },
+            { header: "User", key: "user_name", width: 30 },
+            { header: "Total", key: "total_price", width: 15 },
+            { header: "Products", key: "products", width: 50 }
+        ];
+
+        rows.forEach(row => worksheet.addRow(row));
+
+        res.setHeader(
+            "Content-Type",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        );
+        res.setHeader("Content-Disposition", "attachment; filename=ventas.xlsx");
+
+        await workbook.xlsx.write(res);
+
+        res.end();
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "Error exporting sales to Excel"
+        });
+    }
+}
+
+export const insertProductSale = async (req: Request, res: Response) => {
+    try {
+        
+        const { date, total_price, user_name, products } = req.body;
+        console.log(req.body);
+
+        let [rows] = await SaleModels.insertSale(date, total_price, user_name);
+
+        const newSaleId = rows.insertId;
+
+        const productsData = products.map((productId: number) => [newSaleId, productId]);
+
+        await SaleModels.selectProductSalesWhereId(productsData);
+
+        res.status(201).json({
+            message: "Venta creada con exito",
+            saleId: newSaleId,
+            productsCount: products.length
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "Error recording the sale"
+        });
+    }
+}

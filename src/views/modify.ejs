@@ -1,0 +1,21 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+<main>
+        <h1>Modificación de productos</h1>
+        <hr>
+        <form id="getProduct-form">
+            <label for="idProd">Id del producto</label>
+            <input type="number" name="idProd" id="idProd" required>
+
+            <input type="submit" value="Consultar producto">
+        </form>
+        <hr>
+        <section id="contenedor-producto-crud">
+            <ul id="lista-productos"></ul>
+        </section>
+
+        <section id="updateFormContainer"></section>
+    </main>
+
+    <script src="js/modificar.js"></script>
+<%- include("partials/footer.ejs") %>

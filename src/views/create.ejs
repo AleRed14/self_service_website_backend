@@ -1,0 +1,52 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+
+<main>
+        <h1>Creación de productos</h1>
+        <!-- Formulario para crear productos y enviarlos a /api/products -->
+        <!-- Formulario que va a enviar nuestros datos al endpoint /products -->
+        <form id="altaProducts-container">
+
+            <label for="nameProd">Nombre</label>
+            <input type="text" name="name" id="nameProd" required>
+
+            <label for="imageProd">Imagen</label>
+            <input type="text" name="image" id="imageProd" required>
+
+            <label for="priceProd">Precio</label>
+            <input type="number" name="price" id="priceProd" required>
+
+            <label for="categoryProd">Categoria</label>
+            <select name="category" id="categoryProd" required>
+                <option value="principal-component">Componente principal</option>
+                <option value="periferico">Periferico</option>
+            </select>
+
+            <input id="boton-crearProducto" type="submit" value="Crear Producto">
+        </form>
+
+        <hr>
+        <section id="contenedor-producto-crud">
+
+        </section>
+
+        <hr>
+
+        <!-- Formulario para crear usuarios y enviarlos a /api/users -->
+        <form id="altaUsers-container">
+            
+            <label for="nameUser">Nombre</label>
+            <input type="text" name="name" id="nameUser" required>
+
+            <label for="emailUser">Email</label>
+            <input type="email" name="email" id="emailUser" required>
+
+            <label for="passwordUser">Password</label>
+            <input type="password" name="password" id="passwordUser" required>
+
+            <input id="boton-crearUsuario" type="submit" value="Crear usuario">
+
+        </form>
+    </main>
+<script src="js/crear.js"></script>
+<%- include("partials/footer.ejs") %>

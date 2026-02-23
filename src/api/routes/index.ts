@@ -1,14 +1,17 @@
-import productRoutes from "./product.routes.ts";
+import productRoutes from "./product.routes.js";
 
-import viewRoutes from "./view.routes.ts";
+import viewRoutes from "./view.routes.js";
 
-import userRoutes from "./user.routes.ts";
+import userRoutes from "./user.routes.js";
 
-import authRoutes from "./auth.routes.ts";
+import authRoutes from "./auth.routes.js";
+
+import saleRoutes from "./sale.routes.js"
 
 export {
     productRoutes,
     viewRoutes,
     userRoutes,
-    authRoutes
+    authRoutes,
+    saleRoutes
 }

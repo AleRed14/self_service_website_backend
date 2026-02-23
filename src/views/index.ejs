@@ -1,0 +1,55 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+
+<main>
+
+    <section id="products-container">
+
+        <% products.forEach(prod => { %>
+            <div class="product-card">
+                <img class="product-img" src="<%= prod.image %>" alt="<%= prod.name %>">
+                <h3 title="<%= prod.name %>"><%= limitCharacters(prod.name) %></h3>
+                <p>id: <%= prod.id %></p>
+                <p>$<%= prod.price %></p>
+            </div>
+        <% }); %>
+
+    </section>
+
+    <div class="pagination">
+        
+        <% if (currentPage > 1) { %>
+            <a href="/?page=<%= currentPage - 1 %>">&laquo;</a>
+        <% } %>
+
+        <% for (let i = 1; i <= totalPages; i++) { %>
+            <a href="/?page=<%= i %>"
+            class="<%= i === currentPage ? 'active' : '' %>">
+                <%= i %>
+            </a>
+        <% } %>
+
+        <% if (currentPage < totalPages) { %>
+            <a href="/?page=<%= currentPage + 1 %>">&raquo;</a>
+        <% } %>
+
+    </div>
+
+    <div class="excel">
+        <ul>
+
+            <li>
+                <a href="/export/products">Get products Excel</a>
+            </li>
+
+            <li>
+                <a href="/export/sales">Get sales Excel</a>
+            </li>
+
+        </ul>
+    </div>
+
+</main>
+<script src="js/index.ts"></script>
+<%- include("partials/footer.ejs") %>
+    
