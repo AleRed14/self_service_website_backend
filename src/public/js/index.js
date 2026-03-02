@@ -53,4 +53,4 @@ function init() {
   getProducts();
 }
 
-init();
+// init();

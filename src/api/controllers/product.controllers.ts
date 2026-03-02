@@ -183,7 +183,7 @@ export const getProductsOfPage = async (req: Request, res: Response) => {
 export const getProductsExcel = async (req: Request, res: Response) => {
     try {
         
-        const [rows] = await ProductModels.selectAllProducts();
+        const [rows] = await ProductModels.selectAllActiveProducts();
 
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet("Products")
@@ -201,7 +201,7 @@ export const getProductsExcel = async (req: Request, res: Response) => {
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         );
 
-        res.setHeader("Content-Disposition", "attachment; filename=productos.xlsx");
+        res.setHeader("Content-Disposition", "attachment; filename=products.xlsx");
 
         await workbook.xlsx.write(res);
 

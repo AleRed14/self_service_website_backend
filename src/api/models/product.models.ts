@@ -20,7 +20,7 @@ const selectProductWhereId = (id: string) => {
     
     let sql = `SELECT * FROM products where id = ?`;
     
-    return connection.query<RowDataPacket[] & IProduct[]>(sql);
+    return connection.query<RowDataPacket[] & IProduct[]>(sql, [id]);
 };
 
 const insertProduct = (name: string, image: string, category: string, price: string) => {

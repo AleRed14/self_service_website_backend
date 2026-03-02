@@ -36,9 +36,9 @@ export const loginController = async (req: Request, res: Response) => {
         
         if (match) {
             
-            if (typeof user.id === "number") {
+            if (typeof user.id_user === "number") {
                 req.session.user = {
-                    id: user.id,
+                    id: user.id_user,
                     name: user.name,
                     email: user.email            
                 }

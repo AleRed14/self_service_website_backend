@@ -14,11 +14,11 @@ import { createProduct,
 ////////////////
 // READ -> GET
 
-router.get("/", getProductsOfPage);
+router.get("/export/products", getProductsExcel);
 
 router.get("/:id", validateID, getProductByID);
 
-router.get("/export/products", getProductsExcel);
+router.get("/", getProductsOfPage);
 
 ///////////////////
 // CREATE -> POST

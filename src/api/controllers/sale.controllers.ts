@@ -54,7 +54,7 @@ export const getSalesExcel = async (req: Request, res: Response) => {
         const [rows] = await SaleModels.selectSoldProducts();
 
         const workbook = new ExcelJS.Workbook();
-        const worksheet = workbook.addWorksheet("Ventas");
+        const worksheet = workbook.addWorksheet("Sales");
 
         worksheet.columns = [
             { header: "ID Sale", key: "sale_id", width: 10 },
@@ -70,7 +70,7 @@ export const getSalesExcel = async (req: Request, res: Response) => {
             "Content-Type",
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         );
-        res.setHeader("Content-Disposition", "attachment; filename=ventas.xlsx");
+        res.setHeader("Content-Disposition", "attachment; filename=sales.xlsx");
 
         await workbook.xlsx.write(res);
 
@@ -99,7 +99,7 @@ export const insertProductSale = async (req: Request, res: Response) => {
         await SaleModels.selectProductSalesWhereId(productsData);
 
         res.status(201).json({
-            message: "Venta creada con exito",
+            message: "Sale created successfully",
             saleId: newSaleId,
             productsCount: products.length
         });

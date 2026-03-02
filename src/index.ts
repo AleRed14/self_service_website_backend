@@ -60,10 +60,3 @@ app.listen(PORT, () => {
     console.log(`Server running in port ${PORT}`);
     
 })
-
-
-// app.get(, Anotacion);
-
-// app.get("/export/sales", )
-
-// app.post("/api/sales", );
