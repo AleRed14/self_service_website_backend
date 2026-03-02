@@ -4,10 +4,10 @@
   "description": "Self-service website for purchasing products. Similar to the touchscreen kiosks found in food chains.",
   "main": "index.ts",
   "scripts": {
-  "dev": "node --loader ts-node/esm src/index.ts",
-  "build": "tsc",
-  "start": "node dist/index.js"
-},
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AleRed14/self_service_website.git"
@@ -38,6 +38,7 @@
     "@types/express-session": "^1.18.2",
     "@types/node": "^25.3.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

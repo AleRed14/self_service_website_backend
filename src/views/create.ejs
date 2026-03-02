@@ -2,40 +2,38 @@
 <%- include("partials/nav.ejs") %>
 
 <main>
-        <h1>Creación de productos</h1>
-        <!-- Formulario para crear productos y enviarlos a /api/products -->
-        <!-- Formulario que va a enviar nuestros datos al endpoint /products -->
-        <form id="altaProducts-container">
+        <h1>Product creation</h1>
+        <form id="releaseProducts-container">
 
-            <label for="nameProd">Nombre</label>
+            <label for="nameProd">Name</label>
             <input type="text" name="name" id="nameProd" required>
 
-            <label for="imageProd">Imagen</label>
+            <label for="imageProd">Image</label>
             <input type="text" name="image" id="imageProd" required>
 
-            <label for="priceProd">Precio</label>
+            <label for="priceProd">Price</label>
             <input type="number" name="price" id="priceProd" required>
 
-            <label for="categoryProd">Categoria</label>
+            <label for="categoryProd">Category</label>
             <select name="category" id="categoryProd" required>
-                <option value="principal-component">Componente principal</option>
-                <option value="periferico">Periferico</option>
+                <option value="main-component">Main component</option>
+                <option value="peripheral">Peripheral device</option>
             </select>
 
-            <input id="boton-crearProducto" type="submit" value="Crear Producto">
+            <input id="button-createProduct" type="submit" value="Create Product">
         </form>
 
         <hr>
-        <section id="contenedor-producto-crud">
+        <section id="product-crud-container">
 
         </section>
 
         <hr>
 
-        <!-- Formulario para crear usuarios y enviarlos a /api/users -->
-        <form id="altaUsers-container">
+        
+        <form id="releaseUsers-container">
             
-            <label for="nameUser">Nombre</label>
+            <label for="nameUser">Name</label>
             <input type="text" name="name" id="nameUser" required>
 
             <label for="emailUser">Email</label>
@@ -44,9 +42,9 @@
             <label for="passwordUser">Password</label>
             <input type="password" name="password" id="passwordUser" required>
 
-            <input id="boton-crearUsuario" type="submit" value="Crear usuario">
+            <input id="boton-createUser" type="submit" value="Create user">
 
         </form>
     </main>
-<script src="js/crear.js"></script>
+<script src="js/create.js"></script>
 <%- include("partials/footer.ejs") %>
