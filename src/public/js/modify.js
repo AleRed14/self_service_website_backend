@@ -43,7 +43,7 @@ function showProduct(product) {
             Id: ${product.id} / 
             Name: ${product.name} / 
             <strong>Price: ${product.price}</strong> / 
-            Activo: ${(product.active) ? "Yes" : "No"}
+            Active: ${(product.active) ? "Yes" : "No"}
             </p>
         </li>
         <li class="li-button-panel">

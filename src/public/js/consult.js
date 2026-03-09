@@ -22,18 +22,18 @@ getProductsForm.addEventListener("submit", async (event) => {
 
   let response = await fetch(`${url}/api/products/${idProd}`);
 
-  let datos = await response.json();
+  let productsData = await response.json();
 
   if (response.ok) {
-    let product = datos.payload[0];
+    let product = productsData.payload[0];
     console.log("product: ", product);
 
     showProduct(product);
   } else {
-    console.log(datos);
-    console.log(datos.message);
+    console.log(productsData);
+    console.log(productsData.message);
 
-    showError(datos.message);
+    showError(productsData.message);
   }
 
   showProduct(product);
