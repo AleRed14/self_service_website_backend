@@ -80,7 +80,7 @@ header form#logout input {
     cursor: pointer;
     font-weight: bold;
     transition: background 0.2s;
-    
+    padding-top: 0;
 }
 
 header form#logout input:active, 
