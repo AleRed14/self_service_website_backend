@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 
-import { validateID } from "../middlewares/middlewares.js";
+import { requiresLogin, validateID } from "../middlewares/middlewares.js";
 import { createProduct, 
     getAllProducts, 
     getProductByID, 
@@ -14,7 +14,7 @@ import { createProduct,
 ////////////////
 // READ -> GET
 
-router.get("/export/products", getProductsExcel);
+router.get("/export/products", requiresLogin, getProductsExcel);
 
 router.get("/:id", validateID, getProductByID);
 
